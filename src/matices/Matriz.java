@@ -29,4 +29,19 @@ public class Matriz {
             }
         }
     }
+    
+    public double mostrarDatos(int col, int row){
+        return(this.datos[col][row]);
+    }
+    
+    public Matriz Suma(Matriz MS){
+        Matriz resultado;
+        resultado = new Matriz(this.colums, this.rows);
+        for (int c = 0; c < this.colums; c++){
+            for (int r = 0; r < this.rows; r++){
+                resultado.datos[c][r] = this.datos[c][r] + MS.datos[c][r];
+            }
+        }
+        return(resultado);
+    }
 }

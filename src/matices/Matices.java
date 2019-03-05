@@ -14,6 +14,7 @@ public class Matices {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
         Scanner entDatos;
         entDatos = new Scanner(System.in);
@@ -30,14 +31,22 @@ public class Matices {
                 int columS = entDatos.nextInt();
                 System.out.println("Filas");
                 int rowS = entDatos.nextInt();
-                Matriz M1, M2;
+                Matriz M1, M2, MR;
                 M1 = new Matriz(columS, rowS);
                 M2 = new Matriz(columS, rowS);
+                MR = new Matriz(columS, rowS);
                 System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
                 System.out.println("Ingresa para la Matriz 1:");
                 M1.ingresarDatos();
                 System.out.println("Ingresa para la Matriz 2:");
                 M2.ingresarDatos();
+                System.out.println("El resultado es:");
+                MR = M1.Suma(M2);
+                for (int c = 0; c < columS; c++){
+                    for (int r = 0; r < rowS; r++){
+                        System.out.println(MR.mostrarDatos(c, r));
+                    }
+                }
             break;
             case 2:
             break;
