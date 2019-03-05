@@ -27,28 +27,48 @@ public class Matices {
             case 1:
                 System.out.println("Suma");
                 System.out.println("Ingresa el tamaño de las matrices a sumar:");
-                System.out.println("Columnas:");
-                int columS = entDatos.nextInt();
                 System.out.println("Filas");
                 int rowS = entDatos.nextInt();
-                Matriz M1, M2, MR;
-                M1 = new Matriz(columS, rowS);
-                M2 = new Matriz(columS, rowS);
-                MR = new Matriz(columS, rowS);
+                System.out.println("Columnas:");
+                int columS = entDatos.nextInt();
+                Matriz MS1, MS2, MSR;
+                MS1 = new Matriz(columS, rowS);
+                MS2 = new Matriz(columS, rowS);
                 System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
                 System.out.println("Ingresa para la Matriz 1:");
-                M1.ingresarDatos();
+                MS1.ingresarDatos();
                 System.out.println("Ingresa para la Matriz 2:");
-                M2.ingresarDatos();
+                MS2.ingresarDatos();
                 System.out.println("El resultado es:");
-                MR = M1.Suma(M2);
+                MSR = MS1.Suma(MS2);
                 for (int c = 0; c < columS; c++){
                     for (int r = 0; r < rowS; r++){
-                        System.out.println(MR.mostrarDatos(c, r));
+                        System.out.println(MSR.mostrarDatos(c, r));
                     }
                 }
             break;
             case 2:
+                System.out.println("Suma");
+                System.out.println("Ingresa el tamaño de las matrices a restar:");
+                System.out.println("Filas");
+                int rowR = entDatos.nextInt();
+                System.out.println("Columnas:");
+                int columR = entDatos.nextInt();
+                Matriz MR1, MR2, MRR;
+                MR1 = new Matriz(columR, rowR);
+                MR2 = new Matriz(columR, rowR);
+                System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
+                System.out.println("Ingresa para la Matriz 1:");
+                MR1.ingresarDatos();
+                System.out.println("Ingresa para la Matriz 2:");
+                MR2.ingresarDatos();
+                System.out.println("El resultado es:");
+                MRR = MR1.Resta(MR2);
+                for (int c = 0; c < columR; c++){
+                    for (int r = 0; r < rowR; r++){
+                        System.out.println(MRR.mostrarDatos(c, r));
+                    }
+                }
             break;
             case 3:
             break;
