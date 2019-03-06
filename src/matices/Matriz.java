@@ -55,4 +55,15 @@ public class Matriz {
         }
         return(resultado);
     }
+    
+    public Matriz Transpuesta(){
+        Matriz resultado;
+        resultado = new Matriz(this.rows, this.colums);
+        for (int c = 0; c < this.colums; c++){
+            for (int r = 0; r < this.rows; r++){
+                resultado.datos[r][c] = this.datos[c][r];
+            }
+        }
+        return(resultado);
+    }
 }

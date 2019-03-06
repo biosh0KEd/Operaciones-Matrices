@@ -42,13 +42,14 @@ public class Matices {
                 System.out.println("El resultado es:");
                 MSR = MS1.Suma(MS2);
                 for (int c = 0; c < columS; c++){
+                    System.out.println("");
                     for (int r = 0; r < rowS; r++){
-                        System.out.println(MSR.mostrarDatos(c, r));
+                        System.out.print(MSR.mostrarDatos(c, r) + " ");
                     }
                 }
             break;
             case 2:
-                System.out.println("Suma");
+                System.out.println("Resta");
                 System.out.println("Ingresa el tamaño de las matrices a restar:");
                 System.out.println("Filas");
                 int rowR = entDatos.nextInt();
@@ -65,14 +66,35 @@ public class Matices {
                 System.out.println("El resultado es:");
                 MRR = MR1.Resta(MR2);
                 for (int c = 0; c < columR; c++){
+                    System.out.println("");
                     for (int r = 0; r < rowR; r++){
-                        System.out.println(MRR.mostrarDatos(c, r));
+                        System.out.print(MRR.mostrarDatos(c, r) + " ");
                     }
                 }
             break;
             case 3:
+
             break;
             case 4:
+                System.out.println("Transpuesta");
+                System.out.println("Ingresa el tamaño de la matriz");
+                System.out.println("Filas");
+                int rowT = entDatos.nextInt();
+                System.out.println("Columnas:");
+                int columT = entDatos.nextInt();
+                Matriz MT, MTR;
+                MT = new Matriz(columT, rowT);
+                System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
+                System.out.println("Ingresa para la Matriz");
+                MT.ingresarDatos();
+                System.out.println("El resultado es:");
+                MTR = MT.Transpuesta();
+                for (int c = 0; c < columT; c++){ 
+                    System.out.println("");
+                    for (int r = 0; r < rowT; r++){
+                        System.out.print(MTR.mostrarDatos(r, c) + " ");
+                    }
+                }
             break;
             case 5:
             break;
