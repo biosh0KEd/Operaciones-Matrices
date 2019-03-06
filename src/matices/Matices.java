@@ -32,8 +32,8 @@ public class Matices {
                 System.out.println("Columnas:");
                 int columS = entDatos.nextInt();
                 Matriz MS1, MS2, MSR;
-                MS1 = new Matriz(columS, rowS);
-                MS2 = new Matriz(columS, rowS);
+                MS1 = new Matriz(rowS, columS);
+                MS2 = new Matriz(rowS, columS);
                 System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
                 System.out.println("Ingresa para la Matriz 1:");
                 MS1.ingresarDatos();
@@ -41,10 +41,10 @@ public class Matices {
                 MS2.ingresarDatos();
                 System.out.println("El resultado es:");
                 MSR = MS1.Suma(MS2);
-                for (int c = 0; c < columS; c++){
+                for (int r = 0; r < rowS; r++){
                     System.out.println("");
-                    for (int r = 0; r < rowS; r++){
-                        System.out.print(MSR.mostrarDatos(c, r) + " ");
+                    for (int c = 0; c < columS; c++){
+                        System.out.print(MSR.mostrarDatos(r, c) + " ");
                     }
                 }
             break;
@@ -56,8 +56,8 @@ public class Matices {
                 System.out.println("Columnas:");
                 int columR = entDatos.nextInt();
                 Matriz MR1, MR2, MRR;
-                MR1 = new Matriz(columR, rowR);
-                MR2 = new Matriz(columR, rowR);
+                MR1 = new Matriz(rowR, columR);
+                MR2 = new Matriz(rowR, columR);
                 System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
                 System.out.println("Ingresa para la Matriz 1:");
                 MR1.ingresarDatos();
@@ -65,10 +65,10 @@ public class Matices {
                 MR2.ingresarDatos();
                 System.out.println("El resultado es:");
                 MRR = MR1.Resta(MR2);
-                for (int c = 0; c < columR; c++){
+                for (int r = 0; r < rowR; r++){
                     System.out.println("");
-                    for (int r = 0; r < rowR; r++){
-                        System.out.print(MRR.mostrarDatos(c, r) + " ");
+                    for (int c = 0; c < columR; c++){
+                        System.out.print(MRR.mostrarDatos(r, c) + " ");
                     }
                 }
             break;
@@ -83,15 +83,15 @@ public class Matices {
                 System.out.println("Columnas:");
                 int columT = entDatos.nextInt();
                 Matriz MT, MTR;
-                MT = new Matriz(columT, rowT);
+                MT = new Matriz(rowT, columT);
                 System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
                 System.out.println("Ingresa para la Matriz");
                 MT.ingresarDatos();
                 System.out.println("El resultado es:");
                 MTR = MT.Transpuesta();
-                for (int c = 0; c < columT; c++){ 
+                for (int r = 0; r < columT; r++){ 
                     System.out.println("");
-                    for (int r = 0; r < rowT; r++){
+                    for (int c = 0; c < rowT; c++){
                         System.out.print(MTR.mostrarDatos(r, c) + " ");
                     }
                 }

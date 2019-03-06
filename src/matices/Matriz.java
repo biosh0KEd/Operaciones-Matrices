@@ -15,42 +15,43 @@ public class Matriz {
     private int colums;
     private int rows;
     private double[][] datos;
-    public Matriz(int colums, int rows){
+    public Matriz(int rows, int colums){
         this.colums = colums;
         this.rows = rows;
-        this.datos = new double[colums][rows];
+        this.datos = new double[rows][colums];
         entDatos = new Scanner(System.in);
     }
     
     public void ingresarDatos(){
-        for (int c = 0; c < this.colums; c++){
-            for (int r = 0; r < this.rows; r++){
-                this.datos[c][r] = entDatos.nextDouble();
+        for (int r = 0; r < this.rows; r++){
+            for (int c = 0; c < this.colums; c++){
+                this.datos[r][c] = entDatos.nextDouble();
             }
         }
     }
     
-    public double mostrarDatos(int col, int row){
-        return(this.datos[col][row]);
+    public double mostrarDatos(int row, int col){
+        return(this.datos[row][col]);
     }
     
     public Matriz Resta(Matriz MS){
         Matriz resultado;
-        resultado = new Matriz(this.colums, this.rows);
-        for (int c = 0; c < this.colums; c++){
-            for (int r = 0; r < this.rows; r++){
-                resultado.datos[c][r] = this.datos[c][r] - MS.datos[c][r];
+        resultado = new Matriz(this.rows, this.colums);
+        for (int r = 0; r < this.rows; r++){
+            for (int c = 0; c < this.colums; c++){
+                resultado.datos[r][c] = this.datos[r][c] - MS.datos[r][c];
             }
         }
+        
         return(resultado);
     }
     
     public Matriz Suma(Matriz MS){
         Matriz resultado;
-        resultado = new Matriz(this.colums, this.rows);
-        for (int c = 0; c < this.colums; c++){
-            for (int r = 0; r < this.rows; r++){
-                resultado.datos[c][r] = this.datos[c][r] + MS.datos[c][r];
+        resultado = new Matriz(this.rows, this.colums);
+        for (int r = 0; r < this.rows; r++){
+            for (int c = 0; c < this.colums; c++){
+                resultado.datos[r][c] = this.datos[r][c] + MS.datos[r][c];
             }
         }
         return(resultado);
@@ -58,10 +59,10 @@ public class Matriz {
     
     public Matriz Transpuesta(){
         Matriz resultado;
-        resultado = new Matriz(this.rows, this.colums);
-        for (int c = 0; c < this.colums; c++){
-            for (int r = 0; r < this.rows; r++){
-                resultado.datos[r][c] = this.datos[c][r];
+        resultado = new Matriz(this.colums, this.rows);
+        for (int r = 0; r < this.rows; r++){
+            for (int c = 0; c < this.colums; c++){
+                resultado.datos[c][r] = this.datos[r][c];
             }
         }
         return(resultado);
