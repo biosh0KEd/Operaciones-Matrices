@@ -106,20 +106,21 @@ public class Matriz {
             for (int r = 0; r < this.rows; r++){
                 if (r == 0 && c == 0) {
                     for (int cr = 0; cr < this.colums; cr++) {
-                        this.datos[r][cr] = this.datos[r][cr]/this.datos[r][c];
-                        resultado.datos[r][cr] = resultado.datos[r][cr]/resultado.datos[r][c];
+                        this.datos[r][cr] = this.datos[r][cr]/this.datos[c][c];
+                        resultado.datos[r][cr] = resultado.datos[r][cr]/this.datos[c][c];
                     }
                     comun = 0;
                 } else if (r != c) {
                     for (int cr = 0; cr < this.colums; cr++) { //si estoy en la fila 0
                         this.datos[r][cr] = this.datos[r][cr] - (this.datos[c][cr] * this.datos[r][c]);
-                        resultado.datos[r][cr] = resultado.datos[r][cr] - (resultado.datos[c][cr] * resultado.datos[r][c]);
+                        resultado.datos[r][cr] = resultado.datos[r][cr] - (resultado.datos[c][cr] * this.datos[r][c]);
                     }
                 }
                 if (r == (this.rows - 1) && c != (this.colums -1)) {
+                    int rx = c + 1;
                     for (int cr = 0; cr < this.colums; cr++) {
-                        this.datos[r][cr] = this.datos[r][cr] / this.datos[c + 1][c + 1];
-                        resultado.datos[r][cr] =  resultado.datos[r][cr] / resultado.datos[c + 1][c + 1];
+                        this.datos[rx][cr] = this.datos[rx][cr] / this.datos[c + 1][c + 1];
+                        resultado.datos[rx][cr] =  resultado.datos[rx][cr] / this.datos[c + 1][c + 1];
                     }
                     comun = c + 1;
                 }
