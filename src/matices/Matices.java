@@ -73,7 +73,39 @@ public class Matices {
                 }
             break;
             case 3:
-
+                System.out.println("Multiplicacion");
+                System.out.println("Ingresa el tamaño de las matriz 1 a Multiplicar:");
+                System.out.println("Filas");
+                int rowM1 = entDatos.nextInt();
+                System.out.println("Columnas:");
+                int columM1 = entDatos.nextInt();
+                System.out.println("Ingresa el tamaño de las matriz 2 a Multiplicar:");
+                System.out.println("Filas");
+                int rowM2 = entDatos.nextInt();
+                System.out.println("Columnas:");
+                int columM2 = entDatos.nextInt();
+                if(columM2 == rowM1) {
+                    Matriz MM1, MM2, MMR;
+                    MM1 = new Matriz(rowM1, columM1);
+                    MM2 = new Matriz(rowM2, columM2);
+                    System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
+                    System.out.println("Ingresa para la Matriz 1:");
+                    MM1.ingresarDatos();
+                    System.out.println("Ingresa para la Matriz 2:");
+                    MM2.ingresarDatos();
+                    System.out.println("El resultado es:");
+                    MMR = MM1.Multiplicacion(MM2);
+                    for (int r = 0; r < rowM2 - 1; r++){
+                        System.out.println("");
+                        for (int c = 0; c < columM1 - 1; c++){
+                            System.out.print(MMR.mostrarDatos(r, c) + " ");
+                        }
+                    }       
+                } else {
+                    System.out.println("No se pueden Multiplicar las matrices");
+                    System.out.println("Debe ser las filas de la primera iguales");
+                    System.out.println("a las columnas de la segunda"); 
+                }
             break;
             case 4:
                 System.out.println("Transpuesta");
@@ -97,6 +129,23 @@ public class Matices {
                 }
             break;
             case 5:
+                System.out.println("Inversa");
+                System.out.println("Ingresa el tamaño de la matriz a la que se\n sacara la inversa");
+                System.out.println("Filas y columnas:");
+                int rowsAndColums = entDatos.nextInt();
+                Matriz M, MI;
+                M = new Matriz(rowsAndColums, rowsAndColums);
+                System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
+                System.out.println("Ingresa para la Matriz");
+                M.ingresarDatos();
+                System.out.println("El resultado es:");
+                MI = M.Inverza();
+                for (int r = 0; r < rowsAndColums; r++){
+                    System.out.println("");
+                    for (int c = 0; c < rowsAndColums; c++){
+                        System.out.print(MI.mostrarDatos(r, c) + " ");
+                    }
+                }       
             break;
             case 6:
             break;

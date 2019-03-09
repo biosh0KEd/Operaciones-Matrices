@@ -67,4 +67,64 @@ public class Matriz {
         }
         return(resultado);
     }
+    
+     public Matriz Multiplicacion(Matriz MS){
+        Matriz resultado;
+        resultado = new Matriz(MS.rows - 1, this.colums - 1);
+        int r1 = 0, r2 = 0;
+        while (r1 < this.rows) {
+            double sumaT = 0;
+            for (int c = 0; c < this.colums; c++){
+                sumaT += this.datos[r1][c] * MS.datos[c][r2];
+            }
+            resultado.datos[r1][r2] = sumaT; 
+            if (r2 == MS.colums - 1) {
+                r2 = 0;
+                r1++;
+            }
+            else {
+                r2++;
+            } 
+        }
+        return(resultado);
+    }
+     
+    public Matriz Inverza(){
+        Matriz resultado;
+        resultado = new Matriz(this.colums, this.rows);
+        for (int r = 0; r < this.rows; r++){
+            for (int c = 0; c < this.colums; c++){
+                if (r == c) {
+                    resultado.datos[r][c] = 1;
+                } else {
+                    resultado.datos[r][c] = 0;
+                }
+            }
+        }       
+        int comun = 0;
+        for (int c = 0; c < this.colums; c++){
+            for (int r = 0; r < this.rows; r++){
+                if (r == 0 && c == 0) {
+                    for (int cr = 0; cr < this.colums; cr++) {
+                        this.datos[r][cr] = this.datos[r][cr]/this.datos[r][c];
+                        resultado.datos[r][cr] = resultado.datos[r][cr]/resultado.datos[r][c];
+                    }
+                    comun = 0;
+                } else if (r != c) {
+                    for (int cr = 0; cr < this.colums; cr++) { //si estoy en la fila 0
+                        this.datos[r][cr] = this.datos[r][cr] - (this.datos[c][cr] * this.datos[r][c]);
+                        resultado.datos[r][cr] = resultado.datos[r][cr] - (resultado.datos[c][cr] * resultado.datos[r][c]);
+                    }
+                }
+                if (r == (this.rows - 1) && c != (this.colums -1)) {
+                    for (int cr = 0; cr < this.colums; cr++) {
+                        this.datos[r][cr] = this.datos[r][cr] / this.datos[c + 1][c + 1];
+                        resultado.datos[r][cr] =  resultado.datos[r][cr] / resultado.datos[c + 1][c + 1];
+                    }
+                    comun = c + 1;
+                }
+            }
+        }
+        return(resultado);
+    }
 }
