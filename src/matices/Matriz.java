@@ -101,28 +101,21 @@ public class Matriz {
                 }
             }
         }       
-        int comun = 0;
         for (int c = 0; c < this.colums; c++){
+            double dividendo = this.datos[c][c];
+            for (int cc = 0; cc < this.colums; cc++){
+                this.datos[c][cc] = this.datos[c][cc] / dividendo;
+                resultado.datos[c][cc] = resultado.datos[c][cc] / dividendo;
+            }
             for (int r = 0; r < this.rows; r++){
-                if (r == 0 && c == 0) {
-                    for (int cr = 0; cr < this.colums; cr++) {
-                        this.datos[r][cr] = this.datos[r][cr]/this.datos[c][c];
-                        resultado.datos[r][cr] = resultado.datos[r][cr]/this.datos[c][c];
+                double mul = this.datos[r][c];
+                if (r == c){
+                   
+                } else {
+                    for (int cc = 0; cc < this.colums; cc++){
+                        this.datos[r][cc] = this.datos[r][cc] - (this.datos[c][cc] * mul);
+                        resultado.datos[r][cc] = resultado.datos[r][cc] - (resultado.datos[c][cc] * mul);
                     }
-                    comun = 0;
-                } else if (r != c) {
-                    for (int cr = 0; cr < this.colums; cr++) { //si estoy en la fila 0
-                        this.datos[r][cr] = this.datos[r][cr] - (this.datos[c][cr] * this.datos[r][c]);
-                        resultado.datos[r][cr] = resultado.datos[r][cr] - (resultado.datos[c][cr] * this.datos[r][c]);
-                    }
-                }
-                if (r == (this.rows - 1) && c != (this.colums -1)) {
-                    int rx = c + 1;
-                    for (int cr = 0; cr < this.colums; cr++) {
-                        this.datos[rx][cr] = this.datos[rx][cr] / this.datos[c + 1][c + 1];
-                        resultado.datos[rx][cr] =  resultado.datos[rx][cr] / this.datos[c + 1][c + 1];
-                    }
-                    comun = c + 1;
                 }
             }
         }
