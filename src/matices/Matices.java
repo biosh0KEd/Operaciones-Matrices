@@ -156,9 +156,9 @@ public class Matices {
                 MD = new Matriz(rsAndCs, rsAndCs);
                 System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
                 System.out.println("Ingresa para la Matriz");
-                MD.ingresarDatos();
+                MD.ingresarDatos1();
                 System.out.println("El resultado es:");
-                double res = MD.determinante(rsAndCs);
+                double res = MD.determinante(MD.getDatos());
                 System.out.println(res);
             break;
         }

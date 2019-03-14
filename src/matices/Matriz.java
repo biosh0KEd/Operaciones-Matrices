@@ -30,6 +30,14 @@ public class Matriz {
         }
     }
     
+    public void ingresarDatos1(){
+        for (int r = 0; r < this.rows; r++){
+            for (int c = 0; c < this.colums; c++){
+                this.datos[c][r] = entDatos.nextDouble();
+            }
+        }
+    }
+    
     public double mostrarDatos(int row, int col){
         return(this.datos[row][col]);
     }
@@ -122,14 +130,18 @@ public class Matriz {
         return(resultado);
     }
     
-    public static int determinant(int[][] matrix){ //method sig. takes a matrix (two dimensional array), returns determinant. 
-        int sum=0;  
+    public double[][] getDatos(){
+        return(this.datos);
+    }
+    
+    public double determinante(double[][] matrix){ //method sig. takes a matrix (two dimensional array), returns determinant. 
+        double sum=0;  
         int s; 
         if(matrix.length==1){  //bottom case of recursion. size 1 matrix determinant is itself. 
           return(matrix[0][0]); 
         } 
         for(int i=0;i<matrix.length;i++){ //finds determinant using row-by-row expansion 
-          int[][]smaller= new int[matrix.length-1][matrix.length-1]; //creates smaller matrix- values not in same row, column 
+          double[][]smaller= new double[matrix.length-1][matrix.length-1]; //creates smaller matrix- values not in same row, column 
           for(int a=1;a<matrix.length;a++){ 
             for(int b=0;b<matrix.length;b++){ 
               if(b<i){ 
@@ -146,7 +158,7 @@ public class Matriz {
           else{ 
             s=-1; 
           } 
-          sum+=s*matrix[0][i]*(determinant(smaller));// recursive step: determinant of larger determined by smaller. 
+          sum+=s*matrix[0][i]*(determinante(smaller));// recursive step: determinant of larger determined by smaller. 
         } 
         return(sum); //returns determinant value. once stack is finished, returns final determinant. 
     } 
