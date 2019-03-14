@@ -148,6 +148,18 @@ public class Matices {
                 }       
             break;
             case 6:
+                System.out.println("Determinante");
+                System.out.println("Ingresa el tamaño de la matriz a la que se\n sacara la determinante");
+                System.out.println("Filas y columnas:");
+                int rsAndCs = entDatos.nextInt();
+                Matriz MD;
+                MD = new Matriz(rsAndCs, rsAndCs);
+                System.out.println("Se ingresan los datos de arriba hacia abajo,\n de izquierda a derecha");
+                System.out.println("Ingresa para la Matriz");
+                MD.ingresarDatos();
+                System.out.println("El resultado es:");
+                double res = MD.determinante(rsAndCs);
+                System.out.println(res);
             break;
         }
     }
